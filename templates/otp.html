@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Tutorials</title>
+</head>
+
+<body>
+    <div class="heading">
+        <h1>Online Tutorial Services - Enter OTP</h1>
+        <h3>{{reset_error}}</h3>
+        <div class="banner">
+            <div class="login-section">
+                <form action="/reset_password" method="post">
+                    <label for="otp">Enter OTP</label><br>
+                    <input type="text" name="otp"><br>
+
+                    <label for="npassword">New Password</label><br><br>
+                    <input type="password" name="npassword"><br><br>
+
+                    <label for="cpassword">Confirm Password</label><br><br>
+                    <input type="password" name="cpassword"><br><br>
+
+                    <input type="submit" value="Submit">
+                </form>
+                <div class="other">
+                    <a href="/">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
