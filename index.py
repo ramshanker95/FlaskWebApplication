@@ -1,22 +1,20 @@
 from flask import Flask, render_template, render_template_string, url_for, request, session, redirect, g
-from numpy import require
 from db import *
 from forgot_pass import *
 from random import randint
-from flask_session import Session
+# from flask_session import Session
 
-global Subject, Message
 
 # Create A Flask App
 app = Flask(__name__)
 otp_sender = OtpHandler()
-Subject = "OTS | Reset Passsword OTP"
+
 E_OTP = randint(1000, 9999)
 
 # Session Configuration
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
-Session(app)
+# Session(app)
 
 
 # set Secret Key 
@@ -101,6 +99,8 @@ def learn_more():
 @app.route("/forgot_password", methods=["GET", "POST"])
 def forgot_password():
     forgot_error = ""
+    Subject = "OTS | Reset Passsword OTP"
+
     if request.method == "POST":
         Email = request.form["userId"]
         mobile = request.form["mobile"]
@@ -150,5 +150,5 @@ def Reset_password():
 
 # Set to run as Main Application
 if __name__ =="__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', debug=False)
 
